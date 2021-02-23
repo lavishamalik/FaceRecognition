@@ -1,7 +1,6 @@
 import os
 import cv2
 import numpy as np
-import matplotlib.pyplot as plt
 from flask import Flask,jsonify,request,render_template
 from flask_cors import CORS, cross_origin
 
