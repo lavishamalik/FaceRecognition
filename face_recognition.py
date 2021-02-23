@@ -2,7 +2,7 @@ import os
 import cv2
 import numpy as np
 import matplotlib.pyplot as plt
-from flask import Flask,jsonify,request
+from flask import Flask,jsonify,request,render_template
 from flask_cors import CORS, cross_origin
 
 app = Flask(__name__)
@@ -10,6 +10,11 @@ CORS(app)
 
 app.config["IMAGE_UPLOADS"] = "/Users/lavisha/PythonProjects/datasetface"
 app.config["TEST_UPLOADS"] = "/Users/lavisha/PythonProjects/testface"
+
+@app.route("/",methods=["GET"])
+@cross_origin()
+def welcome():
+    return render_template('homepage.html')
 
 @app.route("/face/save", methods=["POST"])
 @cross_origin()
